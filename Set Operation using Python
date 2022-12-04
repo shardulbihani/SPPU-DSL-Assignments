@@ -1,0 +1,63 @@
+"""
+
+In Second year Computer Engineering class of N students, set A of students play cricket and
+set B of students play badminton. Write python program to find and display-
+A. Set of students who play either cricket or badminton or both
+B. Set of students who play both cricket and badminton
+C. Set of students who play only cricket
+D. Set of students who play only badminton
+E. Number of students who play neither cricket nor badminton
+
+"""
+students_in_class=[]
+P=[]
+Q=[]
+A=[]
+B=[]
+n = int(input("Number of students in class: "))
+for i in range(n):
+    name=input("Enter name of students in class: ")
+    students_in_class.append(name)
+print("Name of students in class are: ",students_in_class)
+for i in range(n):
+    cricket=input("Name of student who play cricket: ")
+    if cricket=="0":
+        break
+    P.append(cricket)
+for item in P:
+    if item in students_in_class:
+        A.append(item)
+print("Students from class who play cricket are: ",A)
+for i in range(n):
+    badminton=input("Name of student who play badminton: ")
+    if badminton=="0":
+        break
+    Q.append(badminton)
+for item in Q:
+    if item in students_in_class:
+        B.append(item)
+print("Students from class who play badminton are: ",B)
+AUB=[]
+for item in A:
+    AUB.append(item)
+for item in B:
+    if item not in AUB:
+        AUB.append(item)
+print("Students from class who play either cricket or badminton or both are: ",AUB)
+AIB=[]
+for item in A:
+    if  item in B:
+        AIB.append(item)
+print("Students from class who play both cricket and badminton are: ",AIB)
+X=[]
+for item in A:
+    if item not in B:
+        X.append(item)
+print("Students from class who play only cricket are: ",X)
+Y=[]
+for item in B:
+    if item not in A:
+        Y.append(item)
+print("Students from class who play only badminton are: ",Y)
+Z=n-(len(AUB))
+print("Students from class who play neither cricket nor badminton are: ",Z)
